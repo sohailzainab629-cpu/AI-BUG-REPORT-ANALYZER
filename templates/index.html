@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Bug Report Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <p class="eyebrow">AI-POWERED DEVELOPER TOOL</p>
+            <h1>Bug Report Analyzer</h1>
+            <p class="subtitle">
+                Describe a software bug and let Gemini analyze it through
+                a four-step LangGraph workflow.
+            </p>
+        </header>
+
+        <section class="panel">
+            <label for="description">Describe the bug</label>
+            <textarea id="description" minlength="10" maxlength="10000"
+                placeholder="Example: When I click Login with valid credentials, the page keeps loading and never opens the dashboard..."
+                required></textarea>
+
+            <button id="analyzeBtn" type="button">Analyze Bug</button>
+            <p id="status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section id="reportSection" class="panel hidden">
+            <div class="report-heading">
+                <div>
+                    <p class="eyebrow">GENERATED REPORT</p>
+                    <h2 id="reportTitle">Bug Report</h2>
+                </div>
+                <span id="severity" class="severity"></span>
+            </div>
+
+            <div class="report-item">
+                <h3>Affected Feature</h3>
+                <p id="feature"></p>
+            </div>
+
+            <div class="report-item">
+                <h3>Issue Summary</h3>
+                <p id="summary"></p>
+            </div>
+
+            <div class="report-item">
+                <h3>Severity Reason</h3>
+                <p id="severityReason"></p>
+            </div>
+
+            <div class="report-item">
+                <h3>Possible Root Causes</h3>
+                <ul id="causes"></ul>
+            </div>
+
+            <div class="report-item">
+                <h3>Original Description</h3>
+                <p id="original"></p>
+            </div>
+
+            <div class="report-item note">
+                <h3>Investigation Note</h3>
+                <p id="investigation"></p>
+            </div>
+
+            <button id="copyBtn" class="secondary" type="button">
+                Copy Report
+            </button>
+        </section>
+
+        <footer>Built with Gemini, LangGraph and FastAPI</footer>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
